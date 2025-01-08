@@ -15,7 +15,7 @@ fi
 }
 
 install_prerequisites() {
-if [[ "$OS" = "debian" || "$OS" = "ubuntu" ]]; then
+if [[ "$OS" = "debian" || "$OS" = "ubuntu" || "$OS" = "kali" ]]; then
 	sudo apt install ninja-build gettext cmake unzip curl build-essential
 elif [[ "$OS" = "rhel" || "$OS" = "fedora" ]]; then
 	sudo dnf -y install ninja-build cmake gcc make unzip gettext curl glibc-gconv-extra
