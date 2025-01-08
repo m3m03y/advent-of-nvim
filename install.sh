@@ -2,29 +2,29 @@
 
 update_system() {
 if [[ "$OS" = "debian" || "$OS" = "ubuntu" ]]; then
-	sudo apt update 2>&1 | tee /dev/tty | tail -n 10
+	sudo apt update
 elif [[ "$OS" = "rhel" || "$OS" = "fedora" ]]; then
-	sudo dnf upgrade -y 2>&1 | tee /dev/tty | tail -n 10
+	sudo dnf upgrade
 elif [[ "$OS" = "suse" ]]; then
-	sudo zypper ref 2>&1 | tee /dev/tty | tail -n 10
+	sudo zypper ref
 elif [[ "$OS" = "arch" ]]; then
-	sudo pacman -Syu 2>&1 | tee /dev/tty | tail -n 10
+	sudo pacman -Syu
 elif [[ "$OS" = "alpine" ]]; then
-	sudo apk update 2>&1 | tee /dev/tty | tail -n 10
+	sudo apk update
 fi
 }
 
 install_prerequisites() {
 if [[ "$OS" = "debian" || "$OS" = "ubuntu" ]]; then
-	sudo apt install ninja-build gettext cmake unzip curl build-essential 2>&1 | tee /dev/tty | tail -n 10
+	sudo apt install ninja-build gettext cmake unzip curl build-essential
 elif [[ "$OS" = "rhel" || "$OS" = "fedora" ]]; then
-	sudo dnf -y install ninja-build cmake gcc make unzip gettext curl glibc-gconv-extra 2>&1 | tee /dev/tty | tail -n 10
+	sudo dnf -y install ninja-build cmake gcc make unzip gettext curl glibc-gconv-extra
 elif [[ "$OS" = "suse" ]]; then
-	sudo zypper install ninja cmake gcc-c++ gettext-tools curl 2>&1 | tee /dev/tty | tail -n 10
+	sudo zypper install ninja cmake gcc-c++ gettext-tools curl
 elif [[ "$OS" = "arch" ]]; then
-	sudo pacman -S base-devel cmake unzip ninja curl 2>&1 | tee /dev/tty | tail -n 10
+	sudo pacman -S base-devel cmake unzip ninja curl
 elif [[ "$OS" = "alpine" ]]; then
-	sudo apk add build-base cmake coreutils curl unzip gettext-tiny-dev 2>&1 | tee /dev/tty | tail -n 10
+	sudo apk add build-base cmake coreutils curl unzip gettext-tiny-dev
 fi
 }
 
