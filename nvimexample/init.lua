@@ -1,7 +1,9 @@
+vim.hl = vim.highlight -- Temporary fix: https://github.com/neovim/neovim/issues/31675
 print("advent of neovim")
 
 require("config.lazy")
 
+vim.cmd [[hi @function.builtin.lua guifg=yellow]]
 vim.opt.shiftwidth = 4
 vim.opt.clipboard = "unnamedplus"
     
